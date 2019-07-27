@@ -4,7 +4,7 @@ class TodoInput extends React.Component {
   render() {
     return (
       <div className="card card-body my-3">
-        <form action="">
+        <form onSubmit={this.props.handleSubmit} action="">
           <input
             type="text"
             className="form-control text-capitalize"
@@ -12,7 +12,7 @@ class TodoInput extends React.Component {
             onChange={this.props.handleChange}
             value={this.props.item}
           />
-          <button type='submit' className='btn btn-block btn-primary mt-3'>Add</button>
+          <button type='submit' className='btn btn-block btn-success mt-3'>Add</button>
         </form>
       </div>
     );

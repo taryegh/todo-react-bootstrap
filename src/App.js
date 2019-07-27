@@ -15,14 +15,36 @@ class App extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearList = this.clearList.bind(this);
   }
 
   handleChange(e) {
     this.setState({
       item: e.target.value
     });
-    console.log(this.state.item);
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const newItem = {
+      id: this.state.id,
+      item: this.state.item
+    };
+    console.log(newItem);
+
+    const updatedItems = [...this.state.items, newItem];
+
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: 1 + Math.random(),
+      editItem: false
+    });
+  }
+
+  clearList() {}
 
   render() {
     return (
@@ -33,8 +55,9 @@ class App extends React.Component {
             <TodoInput
               item={this.state.item}
               handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
             />
-            <TodoList />
+            <TodoList items={this.state.items} />
           </div>
         </div>
       </div>
