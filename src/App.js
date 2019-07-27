@@ -18,6 +18,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClearList = this.handleClearList.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleChange(e) {
@@ -60,21 +61,40 @@ class App extends React.Component {
     });
   }
 
+  handleEdit(id) {
+    const filteredItems = this.state.items.filter(el => el.id !== id);
+
+    const selectedItem = this.state.items.find(el => el.id === id);
+
+    console.log(selectedItem);
+
+    this.setState({
+      items: filteredItems,
+      item: selectedItem.item,
+      editItem: true,
+      id: id
+    });
+  }
+
   render() {
     return (
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-4">
-            <h3 className="text-capitalize text-center">todo input</h3>
+            <h1 className="text-capitalize text-center font-weight-light">
+              todo
+            </h1>
             <TodoInput
               item={this.state.item}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
+              editItem={this.state.editItem}
             />
             <TodoList
               items={this.state.items}
               handleClearList={this.handleClearList}
               handleDelete={this.handleDelete}
+              handleEdit={this.handleEdit}
             />
           </div>
         </div>

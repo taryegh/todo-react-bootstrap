@@ -12,8 +12,15 @@ class TodoInput extends React.Component {
             onChange={this.props.handleChange}
             value={this.props.item}
           />
-          <button type="submit" className="btn btn-block btn-success mt-3">
-            Add
+          <button
+            type="submit"
+            className={
+              this.props.editItem
+                ? "btn btn-block btn-warning mt-3"
+                : "btn btn-block btn-success mt-3"
+            }
+          >
+            {this.props.editItem ? "Edit" : "Add"}
           </button>
         </form>
       </div>

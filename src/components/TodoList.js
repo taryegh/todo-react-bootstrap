@@ -5,7 +5,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <ul className="list-group my-5">
-        <h3 className="text-capitalize text-center">todo list</h3>
+        <h3 className="text-capitalize text-center font-weight-light">list</h3>
 
         {this.props.items.map(el => {
           return (
@@ -13,6 +13,7 @@ class TodoList extends React.Component {
               key={el.id}
               title={el.item}
               handleDelete={() => this.props.handleDelete(el.id)}
+              handleEdit={() => this.props.handleEdit(el.id)}
             />
           );
         })}
