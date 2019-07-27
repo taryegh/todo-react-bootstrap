@@ -16,7 +16,7 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearList = this.clearList.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
 
   handleChange(e) {
@@ -28,23 +28,28 @@ class App extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    const newItem = {
-      id: this.state.id,
-      item: this.state.item
-    };
-    console.log(newItem);
+    if (this.state.item) {
+      const newItem = {
+        id: this.state.id,
+        item: this.state.item
+      };
 
-    const updatedItems = [...this.state.items, newItem];
+      const updatedItems = [...this.state.items, newItem];
 
-    this.setState({
-      items: updatedItems,
-      item: "",
-      id: 1 + Math.random(),
-      editItem: false
-    });
+      this.setState({
+        items: updatedItems,
+        item: "",
+        id: 1 + Math.random(),
+        editItem: false
+      });
+    }
   }
 
-  clearList() {}
+  handleClear() {
+    this.setState({
+      items: []
+    });
+  }
 
   render() {
     return (
@@ -57,7 +62,7 @@ class App extends React.Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-            <TodoList items={this.state.items} />
+            <TodoList items={this.state.items} handleClear={this.handleClear} />
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ class TodoList extends React.Component {
         <button
           type="button"
           className="btn btn-block btn-danger text-capitalize mt-5"
+          onClick={this.props.handleClear}
         >
           clear list
         </button>
