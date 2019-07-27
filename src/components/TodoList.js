@@ -4,10 +4,16 @@ import TodoItem from "./TodoItem";
 class TodoList extends React.Component {
   render() {
     return (
-      <div>
-        <h1> Hello from TodoList</h1>
+      <ul className="list-group my-5">
+        <h3 className="text-capitalize text-center">todo list</h3>
         <TodoItem />
-      </div>
+        <button
+          type="button"
+          className="btn btn-block btn-danger text-capitalize mt-5"
+        >
+          clear list
+        </button>
+      </ul>
     );
   }
 }
