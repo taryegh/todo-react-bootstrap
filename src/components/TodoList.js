@@ -7,17 +7,20 @@ class TodoList extends React.Component {
       <ul className="list-group my-5">
         <h3 className="text-capitalize text-center">todo list</h3>
 
-        {
-          this.props.items.map(el => {
-            return <TodoItem key={el.id} title={el.item}/>
-          })
-        }
+        {this.props.items.map(el => {
+          return (
+            <TodoItem
+              key={el.id}
+              title={el.item}
+              handleDelete={() => this.props.handleDelete(el.id)}
+            />
+          );
+        })}
 
-        
         <button
           type="button"
           className="btn btn-block btn-danger text-capitalize mt-5"
-          onClick={this.props.handleClear}
+          onClick={this.props.handleClearList}
         >
           clear list
         </button>

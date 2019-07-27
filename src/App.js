@@ -16,7 +16,8 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClear = this.handleClear.bind(this);
+    this.handleClearList = this.handleClearList.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleChange(e) {
@@ -45,9 +46,17 @@ class App extends React.Component {
     }
   }
 
-  handleClear() {
+  handleClearList() {
     this.setState({
       items: []
+    });
+  }
+
+  handleDelete(id) {
+    const filteredItems = this.state.items.filter(el => el.id !== id);
+
+    this.setState({
+      items: filteredItems
     });
   }
 
@@ -62,7 +71,11 @@ class App extends React.Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-            <TodoList items={this.state.items} handleClear={this.handleClear} />
+            <TodoList
+              items={this.state.items}
+              handleClearList={this.handleClearList}
+              handleDelete={this.handleDelete}
+            />
           </div>
         </div>
       </div>
