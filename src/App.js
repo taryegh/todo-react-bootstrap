@@ -1,6 +1,7 @@
 import React from "react";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+import './App.css'
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -81,9 +82,10 @@ class App extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-4">
-            <h1 className="text-capitalize text-center font-weight-light">
-              todo
+            <h1 className="text-capitalize text-center display-3 font-weight-lighter">
+              to do
             </h1>
+            <h6 className='text-center font-weight-light'>Powered by React</h6>
             <TodoInput
               item={this.state.item}
               handleChange={this.handleChange}

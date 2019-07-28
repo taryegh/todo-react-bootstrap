@@ -5,7 +5,6 @@ class TodoList extends React.Component {
   render() {
     return (
       <ul className="list-group my-5">
-        <h3 className="text-capitalize text-center font-weight-light">list</h3>
 
         {this.props.items.map(el => {
           return (
