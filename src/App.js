@@ -1,7 +1,7 @@
 import React from "react";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-import './App.css'
+import "./App.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -67,8 +67,6 @@ class App extends React.Component {
 
     const selectedItem = this.state.items.find(el => el.id === id);
 
-    console.log(selectedItem);
-
     this.setState({
       items: filteredItems,
       item: selectedItem.item,
@@ -85,7 +83,7 @@ class App extends React.Component {
             <h1 className="text-capitalize text-center display-3 font-weight-lighter">
               to do
             </h1>
-            <h6 className='text-center font-weight-light'>Powered by React</h6>
+            <h6 className="text-center font-weight-light">Powered by React</h6>
             <TodoInput
               item={this.state.item}
               handleChange={this.handleChange}
